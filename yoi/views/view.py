@@ -1,4 +1,0 @@
-import tkinter
-
-class View:
-    ...

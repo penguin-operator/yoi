@@ -5,7 +5,7 @@ This is a modern VSCode-like open-source extendable code editor made in Python f
 Clone a [git repository](https://github.com/penguin-operator/yoi), then execute `install.sh` script
 ``` sh
 $ ls -a
-.  ..  .git  yoi  requirements.txt  README.md  LICENSE.md  install.sh
+.  ..  .git  yoi  requirements.txt  readme.md  license.md  install.sh
 $ ./install.sh
 ```
 
