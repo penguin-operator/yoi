@@ -13,4 +13,4 @@ $ ./install.sh
 ```
 
 # License
-[MIT License](https://github.com/penguin-operator/yoi/blob/master/LICENSE.md)
+[MIT License](https://github.com/penguin-operator/yoi/blob/master/license.md)
