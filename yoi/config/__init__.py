@@ -11,10 +11,12 @@ class Config(ModuleType):
         self.__path__: str = os.path.dirname(__file__)
 
     def __parse__(self, key: str) -> list[str | int]:
-        return [int(k) if k.isdigit() else k for k in key.split('/')]
+        file = key.split('.')[0] + ".json"
+        return [file] + [int(k) if k.isdigit() else k for k in key.split('.')[1:]]
 
     def __getitem__(self, key: str) -> jsontype:
         file, *keys = self.__parse__(key)
+        file = str(file)
 
         with open(os.path.join(self.__path__, file)) as f:
             data = json.load(f)
@@ -29,6 +31,7 @@ class Config(ModuleType):
 
     def __setitem__(self, key: str, value: jsontype):
         file, *keys = self.__parse__(key)
+        file = str(file)
 
         with open(os.path.join(self.__path__, file)) as f:
             test = json.load(f)

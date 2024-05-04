@@ -1,3 +1,6 @@
+> [!WARNING]
+> This project is in development
+
 # Yoi
 This is a modern VSCode-like open-source extendable code editor made in Python from scratch.
 
