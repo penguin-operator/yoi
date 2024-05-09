@@ -3,7 +3,5 @@ import tkinter as tk
 class Tab(tk.Frame):
     def __init__(self):
         super().__init__(self.master)
-        self.master.add(self)
-
-    def title(self, title: str = "") -> str | None:
-        return self.master.title(self, title)
+        self.pack(fill="both", expand=1)
+        self.bar = self.master.add(self, text=self.__class__.__name__)
