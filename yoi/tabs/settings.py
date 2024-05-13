@@ -1,6 +1,7 @@
+import tkinter as tk
 from .tab import Tab
 
 class Settings(Tab):
     def __init__(self):
-        super().__init__()
-        # self.title("Settings")
+        Tab.__init__(self)
+        self.title("Settings :: Common")
