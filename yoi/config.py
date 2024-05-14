@@ -1,11 +1,9 @@
 import json
-import sys
-import os
 
 class Config:
     def __init__(self, name: str):
         self.__name__ = name
-        self.__file__ = open(f"~/.config/yoi/{name}.jsom", 'r')
+        self.__file__ = open(f"~/.yoi/config/{name}.jsom", 'r')
         self.__data__ = json.load(self.__file__)
 
     def __getitem__(self, key):

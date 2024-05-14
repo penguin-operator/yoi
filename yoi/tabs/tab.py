@@ -6,6 +6,8 @@ class Tab(tk.Frame):
         self.master = self.master.master
         self.__button__ = tk.Button(self.master.titlebar, text=self.__class__.__name__, command=self.select)
         self.__button__.pack(side="left")
+        self.__actions__ = tk.Frame(self.master.titlebar)
+        self.__actions__.pack(side="right")
         self.master.add(self)
 
     def title(self, title: str = "") -> str | None:

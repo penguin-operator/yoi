@@ -13,7 +13,7 @@ class TabSystem(tk.Frame):
     def __init__(self, master: tk.Tk):
         tk.Frame.__init__(self, master)
         self.titlebar: tk.Frame = tk.Frame(self)
-        self.space: tk.Frame = tk.Frame(self, bg="#0f0")
+        self.space: tk.Frame = tk.Frame(self)
         self.tabs: list[Tab] = []
         self.titlebar.pack(side="top", fill="x")
         self.space.pack(fill="both", expand=True)
@@ -24,8 +24,12 @@ class TabSystem(tk.Frame):
     
     def select(self, tab: Tab):
         for t in self.tabs:
+            t.__actions__.forget()
             t.forget()
+        tab.__actions__.pack(side="right")
         tab.pack(fill="both", expand=1)
 
     def close(self, tab: Tab):
+        tab.__actions__.destroy()
         tab.destroy()
+        self.tabs.remove(tab)
