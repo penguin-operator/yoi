@@ -1,6 +1,6 @@
-import app
-import utils
 import config
-import tabs
+import utils
+import app
 import widgets
-import svgimage
+import tabs
+import bars

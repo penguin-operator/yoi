@@ -1,8 +1,9 @@
 import time
 import tkinter as tk
 from utils import *
-from tabs import *
 from widgets import *
+from tabs import *
+from bars import *
 
 class App(tk.Tk):
     __start__ = time.perf_counter()
@@ -14,12 +15,15 @@ class App(tk.Tk):
         self.title("Yoi")
         self.geometry(f"{size}+{x}+{y}")
 
+        self.bars = BarSystem(self)
         self.tabs = TabSystem(self)
+        self.bars.pack(side="left", fill="y")
         self.tabs.pack(side="top", fill="both", expand=1)
         self.statusbar = tk.Frame(self, height=20)
         self.statusbar.pack(side="bottom", fill='x')
 
         Welcome()
+        Editor()
 
     def launchtime(self):
         print(f"launchtime: {time.perf_counter() - self.__start__}")

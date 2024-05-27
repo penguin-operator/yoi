@@ -7,7 +7,7 @@ def cleanup(path: str = "yoi"):
         if "__pycache__" in dirs:
             shutil.rmtree(os.path.join(root, "__pycache__"))
 
-def keypad(widget: tk.Widget):
+def keypad(widget: tk.Text):
     kmap = {
         '<KP_Left>': '<Left>',
         '<KP_Right>': '<Right>',
