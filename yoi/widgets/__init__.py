@@ -1,2 +1,2 @@
 from .tabsystem import TabSystem
-from .barsystem import BarSystem
+from .tab import Tab
