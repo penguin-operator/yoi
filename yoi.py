@@ -7,11 +7,16 @@ def main():
     start = time.perf_counter()
     root = tk.Tk()
     root.geometry("800x600")
-    root.title("yoi")
+    root.title("Yoi")
     root.config(bg="#000")
 
     tabs = yoi.widgets.TabSystem(root)
-    tabs.pack(side="top", fill="both", expand=True)
+    tab0 = yoi.widgets.Tab(tabs)
+    tk.Label(tab0, text="tab0").pack()
+    editor = yoi.widgets.Editor(tabs)
+    tabs.open(tab0)
+    tabs.open(editor)
+    tabs.pack(fill="both", expand=True)
 
     return (time.perf_counter() - start, root)
 
