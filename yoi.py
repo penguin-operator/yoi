@@ -4,24 +4,24 @@ import time
 import yoi
 
 def main():
-    start = time.perf_counter()
     root = tk.Tk()
-    root.geometry("800x600")
+    root.geometry("800x600+0+0")
     root.title("Yoi")
-    root.config(bg="#000")
 
     tabs = yoi.widgets.TabSystem(root)
-    tab0 = yoi.widgets.Tab(tabs)
-    tk.Label(tab0, text="tab0").pack()
+    welcome = yoi.widgets.Welcome(tabs)
     editor = yoi.widgets.Editor(tabs)
-    tabs.open(tab0)
-    tabs.open(editor)
+    tabs.open(welcome)
+    tabs.add(editor)
     tabs.pack(fill="both", expand=True)
 
-    return (time.perf_counter() - start, root)
+    yoi.themes.Theme().__apply__(root)
+
+    return root
 
 if __name__ == "__main__":
-    launchtime, rootwindow = main()
-    print(f"launch time {launchtime:8.6f} sec")
+    start = time.perf_counter()
+    rootwindow = main()
+    print(f"launch time {time.perf_counter() - start:8.6f} sec")
     rootwindow.mainloop()
     yoi.util.cleanup(".")

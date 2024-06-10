@@ -10,6 +10,13 @@ class TabSystem(tk.Frame):
         self.__tabs__ = []
         self.__titlebar__.pack(side="top", fill='x')
 
+    @property
+    def tabs(self):
+        return self.__tabs__
+
+    def add(self, tab: "tab.Tab"):
+        self.__tabs__.append(tab)
+
     def open(self, tab: "tab.Tab | int"):
         for t in self.__tabs__:
             t.forget()
@@ -24,10 +31,6 @@ class TabSystem(tk.Frame):
             getattr(tab, manager).__call__(**data)
         else:
             tab.pack(fill="both", expand=True)
-
-    @property
-    def tabs(self):
-        return self.__tabs__
 
     def close(self, tab: "tab.Tab | int"):
         if isinstance(tab, int):
