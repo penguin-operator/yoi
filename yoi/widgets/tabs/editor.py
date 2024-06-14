@@ -5,8 +5,10 @@ from yoi.widgets.tabsystem import TabSystem
 class Editor(Tab):
     def __init__(self, master: TabSystem, cnf={}, **kw):
         Tab.__init__(self, master, cnf, **kw)
+        self.title("Unsaved*")
         self.editor = tk.Text(self)
-        self.number = tk.Text(self, width=4, state="disabled")
+        self.number = tk.Text(self, width=8, state="disabled")
+        self.scroll = tk.Scrollbar(self, command=self.editor.yview)
         self.number.pack(side="left", fill="y")
         self.editor.pack(fill="both", expand=True)
         self.editor.bind("<KeyPress>", self.update)
